@@ -10,7 +10,7 @@ Abre `index.html` con doble clic en cualquier navegador.
 
 ## Publicarla con GitHub Pages
 
-1. Sube `index.html`, `README.md` y `.nojekyll` a la raíz de un repositorio de GitHub.
+1. Sube `index.html`, la carpeta `img/`, `README.md` y `.nojekyll` a la raíz de un repositorio de GitHub.
 2. En el repositorio, ve a **Settings → Pages**.
 3. En **Build and deployment**, elige **Deploy from a branch**, rama `main` y carpeta `/ (root)`, y guarda.
 4. En un par de minutos la web estará en `https://<tu-usuario>.github.io/<nombre-del-repo>/`.
@@ -22,7 +22,7 @@ Todo está en `index.html`. Los puntos que se cambian con más frecuencia están
 - **Calendario de Google**: en el apartado *Calendario*, el `data-src` del `<iframe id="cal">`. Debe ser el ID de un calendario **público** (Configuración del calendario → Integrar calendario).
 - **Actas, Cuentas y Junta Directiva**: en el apartado *La asociación*. Sustituye cada `href="#"` por el enlace de Google Drive y quita la clase `pending` (es la que los muestra atenuados). Comprueba que estén compartidos como "Cualquier persona con el enlace".
 - **Correos de contacto**: la lista del apartado *Contacta / Opina*.
-- **Logo**: el `<symbol id="logo">` del principio del archivo es provisional.
+- **Logo**: está en la carpeta `img/` (`logo.jpg` es el original; `logo-icono.png` es el árbol recortado para la cabecera y `favicon.png` el icono de la pestaña).
 - **Año del pie de página**: aparece en el `<footer>` de cada apartado.
 
 El archivo `.nojekyll` indica a GitHub Pages que sirva los archivos tal cual, sin procesarlos.

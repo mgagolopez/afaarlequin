@@ -6,14 +6,15 @@
 <meta name="theme-color" content="#f3f5f4">
 <title>AFA Arlequín – Familias de Arlequín</title>
 <meta name="description" content="Asociación de Familias de la Escuela Infantil Municipal Arlequín: la asociación, calendario, actividades, la escuela y contacto.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%278%27 fill=%27%232e9c8e%27/%3E%3Cpath d=%27M16 6l7 10-7 10-7-10z%27 fill=%27%23fff%27/%3E%3C/svg%3E">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="apple-touch-icon" href="img/logo-icono.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#f3f5f4; --card:#fff; --ink:#1f2b2a; --muted:#66736f; --line:#e3e8e6;
-  --accent:#2e9c8e; --accent-ink:#1d6f65; --accent-soft:#e2f2ef;
+  --accent:#536981; --accent-ink:#3f5470; --accent-soft:#fcefc2;
   --radius:18px; --tabbar:72px;
   --font:"Nunito",system-ui,-apple-system,"Segoe UI",sans-serif;
 }
@@ -36,7 +37,7 @@ svg.i{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.75;str
 
 /* Cabecera de cada apartado */
 .top{position:sticky;top:0;z-index:2;display:flex;align-items:center;gap:12px;padding:calc(14px + env(safe-area-inset-top)) 20px 14px;background:rgba(243,245,244,.92);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
-.logo{width:36px;height:36px;flex:none}
+.logo{width:36px;height:36px;flex:none;border-radius:10px}
 .top h1{font-size:20px;font-weight:800;letter-spacing:-.01em}
 
 .content{flex:1;width:100%;max-width:1100px;margin:0 auto;padding:8px 20px 28px}
@@ -47,7 +48,7 @@ svg.i{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.75;str
 /* Tarjetas */
 .grid{display:grid;gap:14px;grid-template-columns:1fr}
 .card{display:flex;gap:14px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px;transition:transform .15s ease,box-shadow .15s ease,border-color .15s ease}
-a.card:hover{border-color:#cfe3de;box-shadow:0 6px 18px rgba(31,43,42,.07);transform:translateY(-1px)}
+a.card:hover{border-color:#d9dfe7;box-shadow:0 6px 18px rgba(31,43,42,.07);transform:translateY(-1px)}
 .card .ico{display:grid;place-items:center;width:46px;height:46px;border-radius:14px;background:var(--accent-soft);color:var(--accent-ink);flex:none}
 .card h3{font-size:17px;font-weight:800;line-height:1.3}
 .card p{font-size:15px;color:var(--muted);margin-top:3px}
@@ -68,7 +69,7 @@ a.card:hover{border-color:#cfe3de;box-shadow:0 6px 18px rgba(31,43,42,.07);trans
 .mail-main .ico{background:rgba(255,255,255,.18);color:#fff}
 .mail-main p{color:rgba(255,255,255,.85)}
 .mail-main .go{color:rgba(255,255,255,.8)}
-a.mail-main:hover{border-color:var(--accent);box-shadow:0 8px 22px rgba(46,156,142,.3)}
+a.mail-main:hover{border-color:var(--accent);box-shadow:0 8px 22px rgba(83,105,129,.3)}
 .vocal{align-items:center}
 .vocal p{word-break:break-all}
 
@@ -121,8 +122,6 @@ footer{padding:24px 20px 28px;text-align:center;font-size:13px;color:var(--muted
   <symbol id="i-utensils" viewBox="0 0 24 24"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2M7 2v20M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/></symbol>
   <symbol id="i-out" viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10"/></symbol>
   <symbol id="i-chev" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></symbol>
-  <!-- Logo provisional: sustitúyelo por el logo de la AFA cuando lo tengas -->
-  <symbol id="logo" viewBox="0 0 40 40"><rect width="40" height="40" rx="11" fill="#2e9c8e"/><path d="M20 7l9 13-9 13-9-13z" fill="#fff"/><path d="M20 7v26M11 20h18" stroke="#2e9c8e" stroke-width="2"/><path d="M20 7l9 13H20zM20 33l-9-13h9z" fill="#f2b84b"/></symbol>
 </svg>
 
 <div class="app">
@@ -130,7 +129,7 @@ footer{padding:24px 20px 28px;text-align:center;font-size:13px;color:var(--muted
 
     <!-- 1. LA ASOCIACIÓN -->
     <section class="slide" id="asociacion" aria-labelledby="t-asociacion">
-      <header class="top"><svg class="logo" role="img" aria-label="AFA Arlequín"><use href="#logo"/></svg><h1 id="t-asociacion">La asociación</h1></header>
+      <header class="top"><img class="logo" src="img/logo-icono.png" alt="AFA Arlequín" width="42" height="42"><h1 id="t-asociacion">La asociación</h1></header>
       <div class="content">
         <p class="intro">Somos la <strong>Asociación de Familias de la Escuela Infantil Municipal Arlequín</strong>. Aquí encontrarás la documentación de la asociación, el calendario, nuestras actividades y la forma de contactar con nosotros.</p>
         <h2 class="label">Documentación</h2>
@@ -146,7 +145,7 @@ footer{padding:24px 20px 28px;text-align:center;font-size:13px;color:var(--muted
 
     <!-- 2. CALENDARIO -->
     <section class="slide" id="calendario" aria-labelledby="t-calendario">
-      <header class="top"><svg class="logo" role="img" aria-label="AFA Arlequín"><use href="#logo"/></svg><h1 id="t-calendario">Calendario</h1></header>
+      <header class="top"><img class="logo" src="img/logo-icono.png" alt="AFA Arlequín" width="42" height="42"><h1 id="t-calendario">Calendario</h1></header>
       <div class="content">
         <div class="cal">
           <!-- CALENDARIO: calendario público de Google de afa.arlequin@gmail.com -->
@@ -161,7 +160,7 @@ footer{padding:24px 20px 28px;text-align:center;font-size:13px;color:var(--muted
 
     <!-- 3. ACTIVIDADES -->
     <section class="slide" id="actividades" aria-labelledby="t-actividades">
-      <header class="top"><svg class="logo" role="img" aria-label="AFA Arlequín"><use href="#logo"/></svg><h1 id="t-actividades">Actividades</h1></header>
+      <header class="top"><img class="logo" src="img/logo-icono.png" alt="AFA Arlequín" width="42" height="42"><h1 id="t-actividades">Actividades</h1></header>
       <div class="content">
         <p class="intro">La AFA gira en torno a <strong>4 grupos de trabajo</strong> que organizan proyectos a lo largo del curso.</p>
         <div class="grid cols">
@@ -176,7 +175,7 @@ footer{padding:24px 20px 28px;text-align:center;font-size:13px;color:var(--muted
 
     <!-- 4. LA ESCUELA -->
     <section class="slide" id="escuela" aria-labelledby="t-escuela">
-      <header class="top"><svg class="logo" role="img" aria-label="AFA Arlequín"><use href="#logo"/></svg><h1 id="t-escuela">La escuela</h1></header>
+      <header class="top"><img class="logo" src="img/logo-icono.png" alt="AFA Arlequín" width="42" height="42"><h1 id="t-escuela">La escuela</h1></header>
       <div class="content">
         <p class="intro">Información relevante sobre la escuela en la web de la <strong>Fundación Granada Educa</strong>.</p>
         <div class="grid cols3">
@@ -190,7 +189,7 @@ footer{padding:24px 20px 28px;text-align:center;font-size:13px;color:var(--muted
 
     <!-- 5. CONTACTA / OPINA -->
     <section class="slide" id="contacto" aria-labelledby="t-contacto">
-      <header class="top"><svg class="logo" role="img" aria-label="AFA Arlequín"><use href="#logo"/></svg><h1 id="t-contacto">Contacta / Opina</h1></header>
+      <header class="top"><img class="logo" src="img/logo-icono.png" alt="AFA Arlequín" width="42" height="42"><h1 id="t-contacto">Contacta / Opina</h1></header>
       <div class="content">
         <p class="intro">Recibimos las sugerencias y comentarios de todas las familias y valoramos vuestras aportaciones.</p>
         <a class="card mail-main" href="mailto:afa.arlequin@gmail.com"><span class="ico"><svg class="i"><use href="#i-mail"/></svg></span><span class="body"><h3>Escribe a la AFA</h3><p>afa.arlequin@gmail.com</p></span><span class="go"><svg class="i"><use href="#i-chev"/></svg></span></a>
