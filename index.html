@@ -58,6 +58,22 @@ a.card:hover{border-color:#d9dfe7;box-shadow:0 6px 18px rgba(31,43,42,.07);trans
 .card.pending{opacity:.6}
 .chip{display:inline-block;margin-top:8px;font-size:12px;font-weight:700;color:var(--accent-ink);background:var(--accent-soft);border-radius:999px;padding:2px 10px}
 
+/* Actividades desplegables */
+.accs{display:grid;gap:14px;max-width:820px}
+details.acc{display:block;padding:0}
+details.acc summary{display:flex;gap:14px;align-items:flex-start;padding:18px;cursor:pointer;list-style:none;border-radius:var(--radius)}
+details.acc summary::-webkit-details-marker{display:none}
+details.acc summary:hover h3{color:var(--accent-ink)}
+details.acc .go{transition:transform .2s ease}
+details.acc[open] .go{transform:rotate(90deg)}
+details.acc[open]{border-color:#d9dfe7;box-shadow:0 6px 18px rgba(31,43,42,.06)}
+details.acc .more{padding:0 18px 20px 78px}
+details.acc .more p{font-size:15.5px;color:var(--ink);margin:0}
+.fotos{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;margin-top:14px}
+.fotos:empty{display:none}
+.fotos img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:12px;display:block}
+@media (max-width:480px){details.acc .more{padding-left:18px}}
+
 /* Calendario */
 .cal{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;height:calc(100dvh - var(--tabbar) - 190px);min-height:420px}
 .cal iframe{display:block;width:100%;height:100%;border:0}
@@ -120,6 +136,7 @@ footer{padding:24px 20px 28px;text-align:center;font-size:13px;color:var(--muted
   <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></symbol>
   <symbol id="i-sprout" viewBox="0 0 24 24"><path d="M7 20h10M10 20c5.5-2.5.8-6.4 3-10"/><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/><path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"/></symbol>
   <symbol id="i-utensils" viewBox="0 0 24 24"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2M7 2v20M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/></symbol>
+  <symbol id="i-tent" viewBox="0 0 24 24"><path d="M3.5 21L14 3M20.5 21L10 3M15.5 21L12 15l-3.5 6M2 21h20"/></symbol>
   <symbol id="i-out" viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10"/></symbol>
   <symbol id="i-chev" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></symbol>
 </svg>
@@ -128,8 +145,8 @@ footer{padding:24px 20px 28px;text-align:center;font-size:13px;color:var(--muted
   <main class="slides" id="slides">
 
     <!-- 1. LA ASOCIACIÓN -->
-    <section class="slide" id="asociacion" aria-labelledby="t-asociacion">
-      <header class="top"><img class="logo" src="img/logo-icono.png" alt="AFA Arlequín" width="42" height="42"><h1 id="t-asociacion">La asociación</h1></header>
+    <section class="slide" id="asociacion" aria-label="La asociación">
+      <header class="top"><img class="logo" src="img/logo-icono.png" alt="" width="42" height="42"><h1>AFA Arlequín</h1></header>
       <div class="content">
         <p class="intro">Somos la <strong>Asociación de Familias de la Escuela Infantil Municipal Arlequín</strong>. Aquí encontrarás la documentación de la asociación, el calendario, nuestras actividades y la forma de contactar con nosotros.</p>
         <h2 class="label">Documentación</h2>
@@ -144,8 +161,8 @@ footer{padding:24px 20px 28px;text-align:center;font-size:13px;color:var(--muted
     </section>
 
     <!-- 2. CALENDARIO -->
-    <section class="slide" id="calendario" aria-labelledby="t-calendario">
-      <header class="top"><img class="logo" src="img/logo-icono.png" alt="AFA Arlequín" width="42" height="42"><h1 id="t-calendario">Calendario</h1></header>
+    <section class="slide" id="calendario" aria-label="Calendario">
+      <header class="top"><img class="logo" src="img/logo-icono.png" alt="" width="42" height="42"><h1>AFA Arlequín</h1></header>
       <div class="content">
         <div class="cal">
           <!-- CALENDARIO: calendario público de Google de afa.arlequin@gmail.com -->
@@ -159,23 +176,59 @@ footer{padding:24px 20px 28px;text-align:center;font-size:13px;color:var(--muted
     </section>
 
     <!-- 3. ACTIVIDADES -->
-    <section class="slide" id="actividades" aria-labelledby="t-actividades">
-      <header class="top"><img class="logo" src="img/logo-icono.png" alt="AFA Arlequín" width="42" height="42"><h1 id="t-actividades">Actividades</h1></header>
+    <section class="slide" id="actividades" aria-label="Actividades">
+      <header class="top"><img class="logo" src="img/logo-icono.png" alt="" width="42" height="42"><h1>AFA Arlequín</h1></header>
       <div class="content">
-        <p class="intro">La AFA gira en torno a <strong>4 grupos de trabajo</strong> que organizan proyectos a lo largo del curso.</p>
-        <div class="grid cols">
-          <div class="card"><span class="ico"><svg class="i"><use href="#i-book"/></svg></span><span class="body"><h3>Abril libros mil</h3><p>Actividades orientadas a la lectura en torno al mes de abril.</p></span></div>
-          <div class="card"><span class="ico"><svg class="i"><use href="#i-talk"/></svg></span><span class="body"><h3>Escuela de familias</h3><p>Charlas impartidas por expertos y profesionales de diversas materias.</p></span></div>
-          <div class="card"><span class="ico"><svg class="i"><use href="#i-globe"/></svg></span><span class="body"><h3>Medio Ambiente</h3><p>Cuidamos entre todos el planeta en el que vivimos.</p></span></div>
-          <div class="card"><span class="ico"><svg class="i"><use href="#i-sprout"/></svg></span><span class="body"><h3>Huerto</h3><p>Actividades en el huerto de la escuela dirigidas a las niñas y los niños.</p></span></div>
+        <p class="intro">La AFA gira en torno a <strong>4 grupos de trabajo</strong> que organizan proyectos a lo largo del curso, además de otras actividades para toda la escuela. Toca cada bloque para ver más.</p>
+        <div class="accs">
+          <details class="card acc">
+            <summary><span class="ico"><svg class="i"><use href="#i-book"/></svg></span><span class="body"><h3>Abril libros mil</h3><p>Actividades orientadas a la lectura en torno al mes de abril.</p></span><span class="go"><svg class="i"><use href="#i-chev"/></svg></span></summary>
+            <div class="more">
+              <p>Trabajamos la lectura durante el mes de abril y las semanas anteriores y posteriores. Organizamos una biblioteca de intercambio temporal entre las familias que quieran participar y también planificamos talleres de lectura y otras actividades en días puntuales.</p>
+              <!-- FOTOS: añade aquí <img src="img/actividades/archivo.jpg" alt="Descripción"> -->
+              <div class="fotos"></div>
+            </div>
+          </details>
+          <details class="card acc">
+            <summary><span class="ico"><svg class="i"><use href="#i-talk"/></svg></span><span class="body"><h3>Escuela de familias</h3><p>Charlas impartidas por expertos y profesionales de diversas materias.</p></span><span class="go"><svg class="i"><use href="#i-chev"/></svg></span></summary>
+            <div class="more">
+              <p>Organizamos charlas para aprender e intercambiar ideas y experiencias sobre diversos temas relacionados con la crianza y la enseñanza de nuestras hijas e hijos a estas edades. Suelen estar impartidas por expertos y profesionales cualificados y reconocidos, y se programan 2 charlas por trimestre.</p>
+              <!-- FOTOS: añade aquí <img src="img/actividades/archivo.jpg" alt="Descripción"> -->
+              <div class="fotos"></div>
+            </div>
+          </details>
+          <details class="card acc">
+            <summary><span class="ico"><svg class="i"><use href="#i-globe"/></svg></span><span class="body"><h3>Medio Ambiente</h3><p>Cuidamos entre todos el planeta en el que vivimos.</p></span><span class="go"><svg class="i"><use href="#i-chev"/></svg></span></summary>
+            <div class="more">
+              <p>Trabajamos para cuidar la naturaleza y concienciar a nuestras hijas e hijos sobre este tema. Organizamos un mercadillo de intercambio que promueve el reciclaje y la segunda vida de la ropa que ya no utilizamos, y organizamos salidas de plogging para limpiar el entorno que nos rodea.</p>
+              <!-- FOTOS: añade aquí <img src="img/actividades/archivo.jpg" alt="Descripción"> -->
+              <div class="fotos"></div>
+            </div>
+          </details>
+          <details class="card acc">
+            <summary><span class="ico"><svg class="i"><use href="#i-sprout"/></svg></span><span class="body"><h3>Huerto</h3><p>Actividades en el huerto de la escuela dirigidas a las niñas y los niños.</p></span><span class="go"><svg class="i"><use href="#i-chev"/></svg></span></summary>
+            <div class="more">
+              <p>Mantenemos el huerto de la escuela e invitamos a las niñas y niños a que nos acompañen en las tareas de siembra, riego y mantenimiento en general. Se organiza en horario escolar para que puedan participar en grupos de 6 a 8 alumnos cada vez.</p>
+              <!-- FOTOS: añade aquí <img src="img/actividades/archivo.jpg" alt="Descripción"> -->
+              <div class="fotos"></div>
+            </div>
+          </details>
+          <details class="card acc">
+            <summary><span class="ico"><svg class="i"><use href="#i-tent"/></svg></span><span class="body"><h3>Otras actividades</h3><p>Acampada de familias y actividades extraescolares.</p></span><span class="go"><svg class="i"><use href="#i-chev"/></svg></span></summary>
+            <div class="more">
+              <p>También organizamos la tradicional acampada para las familias, que se hace en torno a mayo o junio, y gestionamos las actividades extraescolares que se imparten en la propia escuela al terminar el horario escolar.</p>
+              <!-- FOTOS: añade aquí <img src="img/actividades/archivo.jpg" alt="Descripción"> -->
+              <div class="fotos"></div>
+            </div>
+          </details>
         </div>
       </div>
       <footer>© AFA Arlequín · 2026</footer>
     </section>
 
     <!-- 4. LA ESCUELA -->
-    <section class="slide" id="escuela" aria-labelledby="t-escuela">
-      <header class="top"><img class="logo" src="img/logo-icono.png" alt="AFA Arlequín" width="42" height="42"><h1 id="t-escuela">La escuela</h1></header>
+    <section class="slide" id="escuela" aria-label="La escuela">
+      <header class="top"><img class="logo" src="img/logo-icono.png" alt="" width="42" height="42"><h1>AFA Arlequín</h1></header>
       <div class="content">
         <p class="intro">Información relevante sobre la escuela en la web de la <strong>Fundación Granada Educa</strong>.</p>
         <div class="grid cols3">
@@ -188,8 +241,8 @@ footer{padding:24px 20px 28px;text-align:center;font-size:13px;color:var(--muted
     </section>
 
     <!-- 5. CONTACTA / OPINA -->
-    <section class="slide" id="contacto" aria-labelledby="t-contacto">
-      <header class="top"><img class="logo" src="img/logo-icono.png" alt="AFA Arlequín" width="42" height="42"><h1 id="t-contacto">Contacta / Opina</h1></header>
+    <section class="slide" id="contacto" aria-label="Contacta / Opina">
+      <header class="top"><img class="logo" src="img/logo-icono.png" alt="" width="42" height="42"><h1>AFA Arlequín</h1></header>
       <div class="content">
         <p class="intro">Recibimos las sugerencias y comentarios de todas las familias y valoramos vuestras aportaciones.</p>
         <a class="card mail-main" href="mailto:afa.arlequin@gmail.com"><span class="ico"><svg class="i"><use href="#i-mail"/></svg></span><span class="body"><h3>Escribe a la AFA</h3><p>afa.arlequin@gmail.com</p></span><span class="go"><svg class="i"><use href="#i-chev"/></svg></span></a>
