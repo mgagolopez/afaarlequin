@@ -2,169 +2,277 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f3f5f4">
 <title>AFA Arlequín – Familias de Arlequín</title>
-<meta name="description" content="Asociación de familias de la EIM Arlequín: organización, actividades, información de la escuela y contacto.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%276%27 fill=%27%231a1a1a%27/%3E%3Ctext x=%2716%27 y=%2723%27 font-family=%27Georgia,serif%27 font-size=%2720%27 text-anchor=%27middle%27 fill=%27%23f5f5f5%27%3EA%3C/text%3E%3C/svg%3E">
+<meta name="description" content="Asociación de Familias de la Escuela Infantil Municipal Arlequín: la asociación, calendario, actividades, la escuela y contacto.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%278%27 fill=%27%232e9c8e%27/%3E%3Cpath d=%27M16 6l7 10-7 10-7-10z%27 fill=%27%23fff%27/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#f5f5f5;--ink:#1a1a1a;--serif:"Lora",Georgia,serif;--sans:"Open Sans",system-ui,sans-serif}
+:root{
+  --bg:#f3f5f4; --card:#fff; --ink:#1f2b2a; --muted:#66736f; --line:#e3e8e6;
+  --accent:#2e9c8e; --accent-ink:#1d6f65; --accent-soft:#e2f2ef;
+  --radius:18px; --tabbar:72px;
+  --font:"Nunito",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);font:20px/1.6 var(--sans)}
+html,body{height:100%;margin:0}
+body{background:#e7ecea;color:var(--ink);font:16px/1.55 var(--font);overflow:hidden;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
-a:hover{text-decoration:underline}
-:focus-visible{outline:3px solid #2b59c3;outline-offset:3px}
-h1,h2,h3{font-family:var(--serif);font-weight:400;margin:0}
-.wrap{max-width:1100px;margin:0 auto;padding:0 28px}
-svg.i{width:1.15em;height:1.15em;fill:currentColor;flex:none}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:8px}
+h1,h2,h3,p{margin:0}
+svg.i{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;flex:none}
 
-header{padding:48px 0 28px;border-bottom:2px solid var(--ink)}
-header h1{font-size:clamp(36px,6vw,52px);line-height:1.1}
-header p{margin:6px 0 0;font-size:24px}
-nav{display:flex;flex-wrap:wrap;gap:4px 28px;margin-top:36px}
-nav a{padding:4px 0}
+/* Contenedor general: ancho máximo 1400px en escritorio */
+.app{position:relative;max-width:1400px;height:100vh;height:100dvh;margin:0 auto;background:var(--bg);display:flex;flex-direction:column}
 
-section{padding:64px 0;border-bottom:2px solid var(--ink)}
-section>.wrap>h2{font-size:clamp(38px,7vw,60px);line-height:1.15;margin-bottom:24px}
-.lead{max-width:36em;margin:0 0 40px}
+/* Pantallas deslizables */
+.slides{flex:1;min-height:0;display:flex;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;scrollbar-width:none}
+.slides::-webkit-scrollbar{display:none}
+.slide{flex:0 0 100%;min-width:0;scroll-snap-align:start;scroll-snap-stop:always;overflow-y:auto;display:flex;flex-direction:column}
 
-/* Calendario Google */
-.calwrap{position:relative;width:100%;height:600px;background:#fff}
-.calwrap iframe{width:100%;height:100%;border:0}
+/* Cabecera de cada apartado */
+.top{position:sticky;top:0;z-index:2;display:flex;align-items:center;gap:12px;padding:calc(14px + env(safe-area-inset-top)) 20px 14px;background:rgba(243,245,244,.92);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.logo{width:36px;height:36px;flex:none}
+.top h1{font-size:20px;font-weight:800;letter-spacing:-.01em}
 
-/* Enlaces de iconos */
-.big{display:flex;flex-wrap:wrap;justify-content:center;gap:12px 64px;margin-top:56px}
-.big a{display:flex;align-items:center;gap:14px;font:400 clamp(28px,5vw,38px) var(--serif)}
-.big svg.i{width:.9em;height:.9em}
+.content{flex:1;width:100%;max-width:1100px;margin:0 auto;padding:8px 20px 28px}
+.intro{font-size:17px;color:var(--muted);max-width:40em;margin:4px 0 22px}
+.intro strong{color:var(--ink);font-weight:700}
+.label{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:28px 0 12px}
 
-.items{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:48px 40px;text-align:center}
-.items svg.i{width:40px;height:40px;display:block;margin:0 auto 18px}
-.items h3{font-size:clamp(28px,4vw,34px);margin-bottom:10px}
-.items p{margin:0}
-a.item{display:block}
-.otras{display:flex;justify-content:center;margin-top:64px}
-.otras a{display:flex;align-items:center;gap:16px;font:400 clamp(28px,5vw,38px) var(--serif)}
-.otras svg.i{width:.95em;height:.95em}
+/* Tarjetas */
+.grid{display:grid;gap:14px;grid-template-columns:1fr}
+.card{display:flex;gap:14px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px;transition:transform .15s ease,box-shadow .15s ease,border-color .15s ease}
+a.card:hover{border-color:#cfe3de;box-shadow:0 6px 18px rgba(31,43,42,.07);transform:translateY(-1px)}
+.card .ico{display:grid;place-items:center;width:46px;height:46px;border-radius:14px;background:var(--accent-soft);color:var(--accent-ink);flex:none}
+.card h3{font-size:17px;font-weight:800;line-height:1.3}
+.card p{font-size:15px;color:var(--muted);margin-top:3px}
+.card .body{flex:1;min-width:0}
+.card .go{color:#a5b1ad;align-self:center}
+.card .go svg.i{width:20px;height:20px}
+.card.pending{opacity:.6}
+.chip{display:inline-block;margin-top:8px;font-size:12px;font-weight:700;color:var(--accent-ink);background:var(--accent-soft);border-radius:999px;padding:2px 10px}
+
+/* Calendario */
+.cal{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;height:calc(100dvh - var(--tabbar) - 190px);min-height:420px}
+.cal iframe{display:block;width:100%;height:100%;border:0}
+.note{font-size:14px;color:var(--muted);margin-top:12px}
+.note a{color:var(--accent-ink);font-weight:700}
 
 /* Contacto */
-.mails{list-style:none;margin:0;padding:0}
-.mails li{margin:0}
-.mails a{display:flex;align-items:center;gap:22px;padding:4px 0}
-.mails svg.i{width:40px;height:30px}
-.mails .gap{margin-top:36px}
+.mail-main{background:var(--accent);border-color:var(--accent);color:#fff;align-items:center}
+.mail-main .ico{background:rgba(255,255,255,.18);color:#fff}
+.mail-main p{color:rgba(255,255,255,.85)}
+.mail-main .go{color:rgba(255,255,255,.8)}
+a.mail-main:hover{border-color:var(--accent);box-shadow:0 8px 22px rgba(46,156,142,.3)}
+.vocal{align-items:center}
+.vocal p{word-break:break-all}
 
-footer{background:#1b1b1f;color:#fff;text-align:center;padding:30px 20px 34px;font-size:18px}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+footer{padding:24px 20px 28px;text-align:center;font-size:13px;color:var(--muted)}
+
+/* Menú inferior de pestañas */
+.tabbar{display:grid;grid-template-columns:repeat(5,1fr);height:calc(var(--tabbar) + env(safe-area-inset-bottom));padding-bottom:env(safe-area-inset-bottom);background:#fff;border-top:1px solid var(--line)}
+.tab{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:#8a9692;font-size:11px;font-weight:700;line-height:1.1;text-align:center;padding:0 2px}
+.tab .pill{display:grid;place-items:center;width:52px;height:30px;border-radius:999px;transition:background .2s ease,color .2s ease}
+.tab[aria-current="true"]{color:var(--accent-ink)}
+.tab[aria-current="true"] .pill{background:var(--accent-soft)}
+.tab:hover{color:var(--accent-ink)}
+
+@media (min-width:700px){
+  .top{padding:20px max(32px,calc((100% - 1100px)/2 + 32px)) 16px}
+  .top h1{font-size:24px}
+  .logo{width:42px;height:42px}
+  .content{padding:12px 32px 32px}
+  .intro{font-size:19px}
+  .grid.cols{grid-template-columns:repeat(2,1fr)}
+  .tab{flex-direction:row;gap:6px;font-size:14px}
+}
+@media (min-width:1000px){
+  .grid.cols3{grid-template-columns:repeat(3,1fr)}
+  .card.tall{flex-direction:column;padding:24px}
+  .card.tall .go{display:none}
+}
+@media (min-width:1400px){
+  .app{box-shadow:0 0 0 1px var(--line),0 10px 40px rgba(31,43,42,.06)}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
 
-<!-- Iconos (inline, sin depender de librerías externas) -->
+<!-- Iconos de trazo (estilo línea), inline para no depender de librerías -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <symbol id="pencil" viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.8 9.94l-3.75-3.75L3 17.25zM20.7 7.05a1 1 0 000-1.41l-2.34-2.34a1 1 0 00-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></symbol>
-  <symbol id="dollar" viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></symbol>
-  <symbol id="people" viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></symbol>
-  <symbol id="book" viewBox="0 0 24 24"><path d="M12 6.5C10.5 5.4 8.3 5 6 5c-1.2 0-2.4.2-3.5.5-.3.1-.5.4-.5.7v12.3c0 .4.4.7.8.6C3.8 18.8 4.9 18.6 6 18.6c2.2 0 4.2.6 6 2 1.8-1.4 3.8-2 6-2 1.1 0 2.2.2 3.2.5.4.1.8-.2.8-.6V6.2c0-.3-.2-.6-.5-.7C20.4 5.2 19.2 5 18 5c-2.3 0-4.5.4-6 1.5z"/></symbol>
-  <symbol id="tree" viewBox="0 0 24 24"><path d="M12 2L6 10h3l-4 6h4l-3 4h5v2h2v-2h5l-3-4h4l-4-6h3z"/></symbol>
-  <symbol id="leaf" viewBox="0 0 24 24"><path d="M20 4C10 4 4 9 4 16c0 1.5.3 2.8.8 4 .8-3 3-6 6.7-8-3 3-4.5 5.5-5 8.5C8 21 9.5 21 11 21c6 0 9-6 9-17z"/></symbol>
-  <symbol id="arrow" viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 5l5 5-5 5-1.4-1.4L14.2 13H6v-2h8.2l-2.6-2.6L13 7z"/></symbol>
-  <symbol id="school" viewBox="0 0 24 24"><path d="M12 2L2 8v2h20V8L12 2zM4 11v8H2v2h20v-2h-2v-8h-3v8h-3v-8h-4v8H7v-8H4z"/></symbol>
-  <symbol id="spoon" viewBox="0 0 24 24"><path d="M17 2c-2.8 0-5 2.2-5 5 0 1.7.8 3.2 2.1 4.1L5.3 19.9a1.5 1.5 0 002.1 2.1l8.8-8.8C17.7 12.8 19 11 19 9c0-3.9-.9-7-2-7z"/></symbol>
-  <symbol id="cal" viewBox="0 0 24 24"><path d="M7 2v2H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V6a2 2 0 00-2-2h-2V2h-2v2H9V2H7zM5 10h14v10H5V10z"/></symbol>
-  <symbol id="mail" viewBox="0 0 24 18"><rect width="24" height="18" rx="3"/><path d="M3 5l9 7 9-7" fill="none" stroke="#f5f5f5" stroke-width="2"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+  <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
+  <symbol id="i-calendar-check" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M9 16l2 2 4-4"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></symbol>
+  <symbol id="i-school" viewBox="0 0 24 24"><path d="M2 21h20M4 21V10l8-6 8 6v11"/><path d="M10 21v-5h4v5"/><circle cx="12" cy="10.5" r="1.5"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></symbol>
+  <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></symbol>
+  <symbol id="i-euro" viewBox="0 0 24 24"><path d="M4 10h12M4 14h9M19 6a7.7 7.7 0 0 0-5.2-2A7.9 7.9 0 0 0 6 12c0 4.4 3.5 8 7.8 8 2 0 3.8-.8 5.2-2"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></symbol>
+  <symbol id="i-talk" viewBox="0 0 24 24"><path d="M2 3h20M21 3v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V3M7 21l5-5 5 5"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></symbol>
+  <symbol id="i-sprout" viewBox="0 0 24 24"><path d="M7 20h10M10 20c5.5-2.5.8-6.4 3-10"/><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/><path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"/></symbol>
+  <symbol id="i-utensils" viewBox="0 0 24 24"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2M7 2v20M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/></symbol>
+  <symbol id="i-out" viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></symbol>
+  <!-- Logo provisional: sustitúyelo por el logo de la AFA cuando lo tengas -->
+  <symbol id="logo" viewBox="0 0 40 40"><rect width="40" height="40" rx="11" fill="#2e9c8e"/><path d="M20 7l9 13-9 13-9-13z" fill="#fff"/><path d="M20 7v26M11 20h18" stroke="#2e9c8e" stroke-width="2"/><path d="M20 7l9 13H20zM20 33l-9-13h9z" fill="#f2b84b"/></symbol>
 </svg>
 
-<header>
-  <div class="wrap">
-    <h1>AFA Arlequín</h1>
-    <p>Familias de Arlequín</p>
-    <nav aria-label="Principal">
-      <a href="#organizacion">Organización</a>
-      <a href="#actividades">Actividades AFA</a>
-      <a href="#escuela">La escuela</a>
-      <a href="#contacto">Contacta / Opina</a>
-    </nav>
-  </div>
-</header>
+<div class="app">
+  <main class="slides" id="slides">
 
-<main>
-  <!-- ORGANIZACIÓN -->
-  <section id="organizacion">
-    <div class="wrap">
-      <h2>Organización</h2>
-      <p class="lead">Toda la organización de la AFA y un calendario completo y actualizado con todos los eventos próximos tanto de la AFA como de la escuela.</p>
-
-      <div class="calwrap">
-        <!-- CALENDARIO: calendario público de Google de afa.arlequin@gmail.com. Para cambiarlo, sustituye el valor de src= (Configuración del calendario > Integrar calendario). -->
-        <iframe title="Calendario de la AFA y la escuela" loading="lazy"
-          src="https://calendar.google.com/calendar/embed?src=afa.arlequin%40gmail.com&hl=es&ctz=Europe%2FMadrid&showTitle=0&showPrint=0&showTz=0&mode=MONTH&wkst=2"></iframe>
+    <!-- 1. LA ASOCIACIÓN -->
+    <section class="slide" id="asociacion" aria-labelledby="t-asociacion">
+      <header class="top"><svg class="logo" role="img" aria-label="AFA Arlequín"><use href="#logo"/></svg><h1 id="t-asociacion">La asociación</h1></header>
+      <div class="content">
+        <p class="intro">Somos la <strong>Asociación de Familias de la Escuela Infantil Municipal Arlequín</strong>. Aquí encontrarás la documentación de la asociación, el calendario, nuestras actividades y la forma de contactar con nosotros.</p>
+        <h2 class="label">Documentación</h2>
+        <div class="grid cols3">
+          <!-- ENLACES A GOOGLE DRIVE: sustituye cada href="#" por el enlace del documento y quita la clase "pending" -->
+          <a class="card tall pending" href="#" target="_blank" rel="noopener"><span class="ico"><svg class="i"><use href="#i-file"/></svg></span><span class="body"><h3>Actas</h3><p>Actas de las asambleas y reuniones de la AFA.</p></span><span class="go"><svg class="i"><use href="#i-chev"/></svg></span></a>
+          <a class="card tall pending" href="#" target="_blank" rel="noopener"><span class="ico"><svg class="i"><use href="#i-euro"/></svg></span><span class="body"><h3>Cuentas</h3><p>Estado de cuentas de la asociación.</p></span><span class="go"><svg class="i"><use href="#i-chev"/></svg></span></a>
+          <a class="card tall pending" href="#" target="_blank" rel="noopener"><span class="ico"><svg class="i"><use href="#i-users"/></svg></span><span class="body"><h3>Junta Directiva</h3><p>Quién forma la junta directiva de la AFA.</p></span><span class="go"><svg class="i"><use href="#i-chev"/></svg></span></a>
+        </div>
       </div>
+      <footer>© AFA Arlequín · 2026</footer>
+    </section>
 
-      <div class="big">
-        <!-- ENLACES A GOOGLE DRIVE: sustituye cada href="#" por el enlace del documento -->
-        <a href="#" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#pencil"/></svg>Actas</a>
-        <a href="#" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#dollar"/></svg>Cuentas</a>
-        <a href="#" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#people"/></svg>Junta</a>
+    <!-- 2. CALENDARIO -->
+    <section class="slide" id="calendario" aria-labelledby="t-calendario">
+      <header class="top"><svg class="logo" role="img" aria-label="AFA Arlequín"><use href="#logo"/></svg><h1 id="t-calendario">Calendario</h1></header>
+      <div class="content">
+        <div class="cal">
+          <!-- CALENDARIO: calendario público de Google de afa.arlequin@gmail.com -->
+          <!-- En móvil se muestra en modo agenda (lista) y en escritorio en modo mes; ver el script del final -->
+          <iframe id="cal" title="Calendario de la AFA y la escuela" loading="lazy"
+            data-src="https://calendar.google.com/calendar/embed?src=afa.arlequin%40gmail.com&hl=es&ctz=Europe%2FMadrid&showTitle=0&showPrint=0&showTz=0&showCalendars=0&wkst=2&bgcolor=%23ffffff"></iframe>
+        </div>
+        <p class="note">Eventos de la AFA y de la escuela. <a href="https://calendar.google.com/calendar/u/0?cid=YWZhLmFybGVxdWluQGdtYWlsLmNvbQ" target="_blank" rel="noopener">Añadir a mi Google Calendar</a></p>
       </div>
-    </div>
-  </section>
+      <footer>© AFA Arlequín · 2026</footer>
+    </section>
 
-  <!-- ACTIVIDADES -->
-  <section id="actividades">
-    <div class="wrap">
-      <h2>Actividades AFA</h2>
-      <p class="lead">Nos dividimos principalmente en 4 grupos de trabajo para abordar proyectos a lo largo del curso. Además organizamos alguna actividad general, como la merienda de bienvenida, que no se engloba en ninguno de los grupos de trabajo mencionados.</p>
-
-      <div class="items">
-        <!-- Si alguna actividad tiene documento en Drive, convierte el <div class="item"> en <a class="item" href="..."> -->
-        <div><svg class="i" aria-hidden="true"><use href="#book"/></svg><h3>Abril libros mil</h3><p>Actividades orientadas a la lectura en torno al mes de Abril.</p></div>
-        <div><svg class="i" aria-hidden="true"><use href="#people"/></svg><h3>Escuela de familias</h3><p>Charlas impartidas por expertos y profesionales de diversas materias.</p></div>
-        <div><svg class="i" aria-hidden="true"><use href="#tree"/></svg><h3>Medio Ambiente</h3><p>Cuidemos entre todos el planeta en el que vivimos.</p></div>
-        <div><svg class="i" aria-hidden="true"><use href="#leaf"/></svg><h3>Huerto</h3><p>Actividades en el huerto de la escuela dirigidas a las niñas y niños.</p></div>
+    <!-- 3. ACTIVIDADES -->
+    <section class="slide" id="actividades" aria-labelledby="t-actividades">
+      <header class="top"><svg class="logo" role="img" aria-label="AFA Arlequín"><use href="#logo"/></svg><h1 id="t-actividades">Actividades</h1></header>
+      <div class="content">
+        <p class="intro">La AFA gira en torno a <strong>4 grupos de trabajo</strong> que organizan proyectos a lo largo del curso.</p>
+        <div class="grid cols">
+          <div class="card"><span class="ico"><svg class="i"><use href="#i-book"/></svg></span><span class="body"><h3>Abril libros mil</h3><p>Actividades orientadas a la lectura en torno al mes de abril.</p></span></div>
+          <div class="card"><span class="ico"><svg class="i"><use href="#i-talk"/></svg></span><span class="body"><h3>Escuela de familias</h3><p>Charlas impartidas por expertos y profesionales de diversas materias.</p></span></div>
+          <div class="card"><span class="ico"><svg class="i"><use href="#i-globe"/></svg></span><span class="body"><h3>Medio Ambiente</h3><p>Cuidamos entre todos el planeta en el que vivimos.</p></span></div>
+          <div class="card"><span class="ico"><svg class="i"><use href="#i-sprout"/></svg></span><span class="body"><h3>Huerto</h3><p>Actividades en el huerto de la escuela dirigidas a las niñas y los niños.</p></span></div>
+        </div>
       </div>
+      <footer>© AFA Arlequín · 2026</footer>
+    </section>
 
-      <div class="otras">
-        <a href="#" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#arrow"/></svg>Otras actividades</a>
+    <!-- 4. LA ESCUELA -->
+    <section class="slide" id="escuela" aria-labelledby="t-escuela">
+      <header class="top"><svg class="logo" role="img" aria-label="AFA Arlequín"><use href="#logo"/></svg><h1 id="t-escuela">La escuela</h1></header>
+      <div class="content">
+        <p class="intro">Información relevante sobre la escuela en la web de la <strong>Fundación Granada Educa</strong>.</p>
+        <div class="grid cols3">
+          <a class="card tall" href="https://www.fundaciongranadaeduca.org/las-escuelas/eim-arlequin/" target="_blank" rel="noopener"><span class="ico"><svg class="i"><use href="#i-school"/></svg></span><span class="body"><h3>EIM Arlequín</h3><p>La escuela en la web oficial de la fundación.</p></span><span class="go"><svg class="i"><use href="#i-out"/></svg></span></a>
+          <a class="card tall" href="https://www.fundaciongranadaeduca.org/alimentacion/" target="_blank" rel="noopener"><span class="ico"><svg class="i"><use href="#i-utensils"/></svg></span><span class="body"><h3>Menú semanal</h3><p>El menú actualizado que se cocina cada día en la escuela.</p></span><span class="go"><svg class="i"><use href="#i-out"/></svg></span></a>
+          <a class="card tall" href="https://www.fundaciongranadaeduca.org/calendarios-y-horarios/" target="_blank" rel="noopener"><span class="ico"><svg class="i"><use href="#i-calendar-check"/></svg></span><span class="body"><h3>Calendario oficial</h3><p>El calendario escolar oficial de la fundación.</p></span><span class="go"><svg class="i"><use href="#i-out"/></svg></span></a>
+        </div>
       </div>
-    </div>
-  </section>
+      <footer>© AFA Arlequín · 2026</footer>
+    </section>
 
-  <!-- ESCUELA -->
-  <section id="escuela">
-    <div class="wrap">
-      <h2>La escuela</h2>
-      <p class="lead">Información relevante sobre la escuela.</p>
-      <div class="items">
-        <a class="item" href="https://www.fundaciongranadaeduca.org/las-escuelas/eim-arlequin/" target="_blank" rel="noopener">
-          <svg class="i" aria-hidden="true"><use href="#school"/></svg><h3>EIM Arlequín</h3><p>Información sobre la escuela en la página oficial de la fundación Granada Educa</p></a>
-        <a class="item" href="https://www.fundaciongranadaeduca.org/alimentacion/" target="_blank" rel="noopener">
-          <svg class="i" aria-hidden="true"><use href="#spoon"/></svg><h3>Menú semanal</h3><p>Disponemos de cocina en la que se prepara la comida de las niñas y niños cada día.</p></a>
-        <a class="item" href="https://www.fundaciongranadaeduca.org/calendarios-y-horarios/" target="_blank" rel="noopener">
-          <svg class="i" aria-hidden="true"><use href="#cal"/></svg><h3>Calendario oficial</h3><p>El calendario oficial de la fundación Granada Educa.</p></a>
+    <!-- 5. CONTACTA / OPINA -->
+    <section class="slide" id="contacto" aria-labelledby="t-contacto">
+      <header class="top"><svg class="logo" role="img" aria-label="AFA Arlequín"><use href="#logo"/></svg><h1 id="t-contacto">Contacta / Opina</h1></header>
+      <div class="content">
+        <p class="intro">Recibimos las sugerencias y comentarios de todas las familias y valoramos vuestras aportaciones.</p>
+        <a class="card mail-main" href="mailto:afa.arlequin@gmail.com"><span class="ico"><svg class="i"><use href="#i-mail"/></svg></span><span class="body"><h3>Escribe a la AFA</h3><p>afa.arlequin@gmail.com</p></span><span class="go"><svg class="i"><use href="#i-chev"/></svg></span></a>
+        <h2 class="label">Vocales de cada aula</h2>
+        <div class="grid cols cols3">
+          <a class="card vocal" href="mailto:afa.arlequin+caracol@gmail.com"><span class="ico"><svg class="i"><use href="#i-mail"/></svg></span><span class="body"><h3>Caracol</h3><p>afa.arlequin+caracol@gmail.com</p></span></a>
+          <a class="card vocal" href="mailto:afa.arlequin+jirafas@gmail.com"><span class="ico"><svg class="i"><use href="#i-mail"/></svg></span><span class="body"><h3>Jirafas</h3><p>afa.arlequin+jirafas@gmail.com</p></span></a>
+          <a class="card vocal" href="mailto:afa.arlequin+sol@gmail.com"><span class="ico"><svg class="i"><use href="#i-mail"/></svg></span><span class="body"><h3>Sol</h3><p>afa.arlequin+sol@gmail.com</p></span></a>
+          <a class="card vocal" href="mailto:afa.arlequin+arboles@gmail.com"><span class="ico"><svg class="i"><use href="#i-mail"/></svg></span><span class="body"><h3>Árboles</h3><p>afa.arlequin+arboles@gmail.com</p></span></a>
+          <a class="card vocal" href="mailto:afa.arlequin+montanas@gmail.com"><span class="ico"><svg class="i"><use href="#i-mail"/></svg></span><span class="body"><h3>Montañas</h3><p>afa.arlequin+montanas@gmail.com</p></span></a>
+          <a class="card vocal" href="mailto:afa.arlequin+palomas@gmail.com"><span class="ico"><svg class="i"><use href="#i-mail"/></svg></span><span class="body"><h3>Palomas</h3><p>afa.arlequin+palomas@gmail.com</p></span></a>
+        </div>
       </div>
-    </div>
-  </section>
+      <footer>© AFA Arlequín · 2026</footer>
+    </section>
+  </main>
 
-  <!-- CONTACTO -->
-  <section id="contacto">
-    <div class="wrap">
-      <h2>Contacta / Opina</h2>
-      <p class="lead">Recibimos las sugerencias y comentarios de todas las madres y padres y valoramos vuestras aportaciones.</p>
-      <ul class="mails">
-        <li class="gap"><a href="mailto:afa.arlequin@gmail.com"><svg class="i" aria-hidden="true"><use href="#mail"/></svg>afa.arlequin@gmail.com</a></li>
-        <li class="gap"><a href="mailto:afa.arlequin+jirafas@gmail.com"><svg class="i" aria-hidden="true"><use href="#mail"/></svg>Vocal Jirafas</a></li>
-        <li><a href="mailto:afa.arlequin+sol@gmail.com"><svg class="i" aria-hidden="true"><use href="#mail"/></svg>Vocal Sol</a></li>
-        <li class="gap"><a href="mailto:afa.arlequin+arboles@gmail.com"><svg class="i" aria-hidden="true"><use href="#mail"/></svg>Vocal Árboles</a></li>
-        <li><a href="mailto:afa.arlequin+montanas@gmail.com"><svg class="i" aria-hidden="true"><use href="#mail"/></svg>Vocal Montañas</a></li>
-        <li><a href="mailto:afa.arlequin+palomas@gmail.com"><svg class="i" aria-hidden="true"><use href="#mail"/></svg>Vocal Palomas</a></li>
-      </ul>
-    </div>
-  </section>
-</main>
+  <nav class="tabbar" aria-label="Apartados">
+    <a class="tab" href="#asociacion"><span class="pill"><svg class="i" aria-hidden="true"><use href="#i-users"/></svg></span>La asociación</a>
+    <a class="tab" href="#calendario"><span class="pill"><svg class="i" aria-hidden="true"><use href="#i-calendar"/></svg></span>Calendario</a>
+    <a class="tab" href="#actividades"><span class="pill"><svg class="i" aria-hidden="true"><use href="#i-star"/></svg></span>Actividades</a>
+    <a class="tab" href="#escuela"><span class="pill"><svg class="i" aria-hidden="true"><use href="#i-school"/></svg></span>La escuela</a>
+    <a class="tab" href="#contacto"><span class="pill"><svg class="i" aria-hidden="true"><use href="#i-mail"/></svg></span>Contacta</a>
+  </nav>
+</div>
 
-<footer>© AFA Arlequín | 2026</footer>
+<script>
+(function () {
+  var slides = document.getElementById('slides');
+  var panels = Array.prototype.slice.call(slides.querySelectorAll('.slide'));
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab'));
+  var current = -1;
+
+  function setActive(i) {
+    if (i === current) return;
+    current = i;
+    tabs.forEach(function (t, j) { t.setAttribute('aria-current', j === i ? 'true' : 'false'); });
+    history.replaceState(null, '', '#' + panels[i].id);
+  }
+
+  function goTo(i, smooth) {
+    i = Math.max(0, Math.min(panels.length - 1, i));
+    slides.scrollTo({ left: i * slides.clientWidth, behavior: smooth ? 'smooth' : 'auto' });
+    setActive(i);
+  }
+
+  function indexOfHash() {
+    var id = location.hash.slice(1);
+    for (var i = 0; i < panels.length; i++) if (panels[i].id === id) return i;
+    return 0;
+  }
+
+  // Pestañas: desplazan en lugar de saltar al ancla
+  tabs.forEach(function (t, i) {
+    t.addEventListener('click', function (e) { e.preventDefault(); goTo(i, true); });
+  });
+
+  // Al deslizar con el dedo o el trackpad, marca la pestaña correspondiente
+  var raf;
+  slides.addEventListener('scroll', function () {
+    cancelAnimationFrame(raf);
+    raf = requestAnimationFrame(function () {
+      setActive(Math.round(slides.scrollLeft / slides.clientWidth));
+    });
+  }, { passive: true });
+
+  // Flechas del teclado en escritorio
+  document.addEventListener('keydown', function (e) {
+    if (e.altKey || e.ctrlKey || e.metaKey) return;
+    if (e.key === 'ArrowRight') goTo(current + 1, true);
+    if (e.key === 'ArrowLeft') goTo(current - 1, true);
+  });
+
+  // Mantiene la pantalla actual al girar el móvil o cambiar el tamaño de la ventana
+  window.addEventListener('resize', function () { goTo(current, false); });
+  window.addEventListener('hashchange', function () { goTo(indexOfHash(), true); });
+
+  var cal = document.getElementById('cal');
+  cal.src = cal.getAttribute('data-src') + '&mode=' + (window.innerWidth < 700 ? 'AGENDA' : 'MONTH');
+
+  goTo(indexOfHash(), false);
+})();
+</script>
 </body>
 </html>

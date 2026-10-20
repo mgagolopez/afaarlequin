@@ -1,6 +1,8 @@
 # AFA Arlequín – web
 
-Web estática de la Asociación de Familias (AFA) de la EIM Arlequín. Es una copia en un solo archivo (`index.html`) de la web original hecha con WordPress: no necesita servidor, base de datos ni compilación.
+Web estática de la Asociación de Familias (AFA) de la EIM Arlequín. Todo está en un solo archivo (`index.html`): no necesita servidor, base de datos ni compilación.
+
+La web tiene 5 apartados (La asociación, Calendario, Actividades, La escuela y Contacta / Opina). Se pasa de uno a otro deslizando a los lados o con el menú de pestañas fijo abajo; en escritorio también con las flechas del teclado. El ancho máximo en escritorio es de 1400 px.
 
 ## Ver la web en local
 
@@ -17,9 +19,10 @@ Abre `index.html` con doble clic en cualquier navegador.
 
 Todo está en `index.html`. Los puntos que se cambian con más frecuencia están marcados con comentarios:
 
-- **Calendario de Google**: en la sección *Organización*, el `src` del `<iframe>`. Debe ser el ID de un calendario **público** (Configuración del calendario → Integrar calendario).
-- **Actas, Cuentas, Junta y Otras actividades**: los `href` de esos enlaces apuntan a documentos de Google Drive. Comprueba que estén compartidos como "Cualquier persona con el enlace".
-- **Correos de contacto**: la lista de la sección *Contacta / Opina*.
-- **Año del pie de página**: la línea `<footer>` al final.
+- **Calendario de Google**: en el apartado *Calendario*, el `data-src` del `<iframe id="cal">`. Debe ser el ID de un calendario **público** (Configuración del calendario → Integrar calendario).
+- **Actas, Cuentas y Junta Directiva**: en el apartado *La asociación*. Sustituye cada `href="#"` por el enlace de Google Drive y quita la clase `pending` (es la que los muestra atenuados). Comprueba que estén compartidos como "Cualquier persona con el enlace".
+- **Correos de contacto**: la lista del apartado *Contacta / Opina*.
+- **Logo**: el `<symbol id="logo">` del principio del archivo es provisional.
+- **Año del pie de página**: aparece en el `<footer>` de cada apartado.
 
 El archivo `.nojekyll` indica a GitHub Pages que sirva los archivos tal cual, sin procesarlos.
